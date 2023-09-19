@@ -1,0 +1,188 @@
+
+*:not(dialog) {
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    height: 100vh;
+}
+
+body {
+    background-color: #EDF1D6;
+}
+
+@font-face {
+    font-family: quicksand;
+    src: url(fonts/Quicksand-VariableFont_wght.ttf);
+}
+
+.content {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    height: 100vh;
+}
+
+.container {
+    display: grid;
+    /* grid-template-rows: 1fr 3fr;
+    height: 100vh; */
+    gap: 50px;
+}
+
+.sidebar {
+    background-color: #40513B;
+    display: grid;
+    grid-template-rows: 240.75px auto;
+    justify-content: center;
+}
+
+.menu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.dashboard-title {
+    display: flex;
+    align-items: center;
+    gap: 17px;
+    color: white;
+    justify-self: center;
+    align-self: flex-start;
+    margin-top: 65px;
+}
+
+.deleteBtn {
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    font-family: quicksand;
+    font-size: 1.2em;
+    background-color: #C05555;
+    color: white;
+    width: 40px;
+    height: 40px;
+    margin-top: 15px;
+}
+
+.deleteBtn:hover {
+    cursor: pointer;
+}
+
+.dashboard-title h1,
+.add-new {
+    font-family: quicksand;
+    font-size: 2.75em;
+}
+
+.add-new {
+    width: 70px;
+    height: 70px;
+    border-radius: 15px;
+    font-weight:800;
+    border: none;
+}
+
+.add-new:hover {
+    cursor: pointer;
+}
+
+dialog#modal {
+    border: none;
+    background-color: transparent;
+}
+
+.page-title {
+    justify-self: center;
+    font-family: quicksand;
+    font-size: 2.75em;
+    color: #40513B;
+    margin-top: 65px;
+    margin-bottom: 35px;
+}
+
+.input-container {
+    justify-self: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 300px;
+    height: 300px;
+    gap: 13px;
+    padding: 20px;
+    border-radius: 15px;
+    background-color: #9EB384;
+    border: 3px solid #435334;
+    box-shadow: 4px 4px #435334;
+    font-family: quicksand;
+    font-weight: 600;
+    color: #435334;
+}
+
+dialog::backdrop {
+    background-color: rgba(0, 0, 0, 0.377);
+}
+
+.input-container button {
+        border: none;
+        display: flex;
+        padding: 0.75rem 1.5rem;
+        background-color: #435334;
+        color: #ffffff;
+        font-size: 0.75rem;
+        line-height: 1rem;
+        font-weight: 700;
+        text-align: center;
+        text-transform: uppercase;
+        vertical-align: middle;
+        align-items: center;
+        border-radius: 0.5rem;
+        user-select: none;
+        gap: 0.75rem;
+        box-shadow: 0 4px 6px -1px #488aec31, 0 2px 4px -1px #488aec17;
+        transition: all .6s ease;
+      
+}
+
+.input-container button:hover {
+    cursor: pointer;
+    transform: translateY(-3px);
+}
+
+.books-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(285px, 1fr));
+    gap: 15px;
+    padding: 25px;
+    justify-items: center;
+}
+
+.card {
+    font-family: quicksand;
+    background-color: #609966;
+    border-left: solid 9px #465a40;
+    box-shadow: 0px 7px 12px gray;
+    color: #EDF1D6;
+    border-radius: 15px;
+    display: grid;
+    grid-template-rows: repeat(5, 1fr);
+    align-items: center;
+    justify-content: start;
+    gap: 10px;
+    padding: 40px 25px 40px 25px;
+    width: 230px;
+    height: 260px;
+}
+
+.card p {
+    font-size: 1.14em;
+}
+
+.card h3 {
+    font-size: 1.3em;
+}
