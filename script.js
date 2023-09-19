@@ -16,12 +16,15 @@ function Book(title, author, pages, read) {
     this.displayed = false
 };
 
+const form = document.getElementById("form")
+
 const modal = document.getElementById("modal");
 function displayForm() {
     modal.showModal()
 }
 
 function addToLibrary() {
+    if (((inputTitle.value.length && inputAuthor.value.length >= 2) && (inputPages.value > 0))) {
     myLibrary.push(new Book(inputTitle.value, inputAuthor.value, inputPages.value, inputIsRead.checked))
     console.log(myLibrary)
     inputTitle.value = " "
@@ -29,8 +32,8 @@ function addToLibrary() {
     inputPages.value = ""
     inputIsRead.checked = false
     DB()
-    modal.close()
-};
+    modal.close(); 
+}};
 
 function DB() {
 myLibrary.forEach((book) => {
