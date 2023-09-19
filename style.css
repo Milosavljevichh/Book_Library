@@ -176,7 +176,7 @@ dialog::backdrop {
     gap: 10px;
     padding: 40px 25px 40px 25px;
     width: 230px;
-    height: 260px;
+    height: fit-content;
 }
 
 .card p {

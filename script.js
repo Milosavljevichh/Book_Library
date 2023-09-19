@@ -85,8 +85,10 @@ myLibrary.forEach((book) => {
     cardSectionRead.classList.add("cardSection")
     cardSectionRead.append(pIsRead, isRead)
     
+    //btns
     const cardSectionDelete = document.createElement("div")
     cardSectionDelete.classList.add("cardSection")
+
     const deleteBtn = document.createElement("button")
     deleteBtn.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" height=1.5em fill="white" viewBox="0 0 24 24"><title>trash-can</title><path d="M9,3V4H4V6H5V19A2,2 0 0,0 7,21H17A2,2 0 0,0 19,19V6H20V4H15V3H9M9,8H11V17H9V8M13,8H15V17H13V8Z" /></svg>`
     deleteBtn.addEventListener("click", function(){
@@ -95,8 +97,21 @@ myLibrary.forEach((book) => {
         }), 1)
         card.remove()
     })
+
+    const readBtn = document.createElement("button")
+    readBtn.innerHTML = "X"
+    readBtn.addEventListener("click", function(){
+            book.isRead = !book.isRead
+            if (book.isRead === true) {
+                isRead.innerHTML = 'Yes'
+            } else {
+                 isRead.innerHTML = 'No'
+            }
+    })
+
     deleteBtn.classList.add("deleteBtn")
-    cardSectionDelete.append(deleteBtn)
+    readBtn.classList.add("deleteBtn")
+    cardSectionDelete.append(deleteBtn, readBtn)
     
     
 
