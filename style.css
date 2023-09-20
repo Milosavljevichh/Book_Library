@@ -86,23 +86,32 @@ body {
     border-radius: 10px;
     font-family: quicksand;
     font-size: 1.2em;
-    background-color: #C05555;
+    background-color: #40513B;
     color: white;
     width: 40px;
     height: 40px;
     margin-top: 15px;
+    transition: all .4s;
 }
+
+
 
 .cardSectionDelete {
     display: flex;
-    gap: 10px;
+    gap: 16px;
     align-items: center;
     justify-content: center;
 }
 
 .deleteBtn:hover {
     cursor: pointer;
+    background-color: #2c3828;
 }
+
+.trashBtn:hover {
+    cursor: pointer;
+    background-color: #D3756B;
+} 
 
 .dashboard-title h1 {
     font-family: quicksand;
