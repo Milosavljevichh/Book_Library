@@ -35,6 +35,14 @@ function addToLibrary() {
     modal.close(); 
 }};
 
+function closeDialog() {
+    modal.close();
+    inputTitle.value = " "
+    inputAuthor.value = " "
+    inputPages.value = ""
+    inputIsRead.checked = false
+}
+
 function DB() {
 myLibrary.forEach((book) => {
     if (book.displayed === false) {
