@@ -5,6 +5,7 @@ let inputPages = document.querySelector('#pages');
 let inputIsRead = document.querySelector('#isRead');
 let pagesSumDisplay = document.querySelector(".total-pages");
 let booksSumDisplay = document.querySelector(".total-books");
+let readSumDisplay = document.querySelector(".total-read");
 
 const myLibrary = [];
 
@@ -21,9 +22,11 @@ function Book(title, author, pages, read) {
     this.pages = pages
     this.isRead = read
     this.displayed = false
+    this.readDetected = false
 };
 
-let pagesSum = 0
+let pagesSum = 0;
+let readSum = 0;
 
 function calculatePages() {
     myLibrary.forEach((book) => {
@@ -35,7 +38,19 @@ function calculatePages() {
     pagesSumDisplay.innerHTML = pagesSum
 };
 
+function calculateRead() {
+    let readBooks = []
+    myLibrary.forEach((book) => {
+        if (book.isRead === true) {
+            readBooks.push(book)
+        }
+    })
 
+    readSum = readBooks.length
+
+    readSumDisplay.innerHTML = readSum;
+    console.log(readSum)
+}
 
 
 function addToLibrary() {
@@ -43,6 +58,7 @@ function addToLibrary() {
         myLibrary.push(new Book(inputTitle.value, inputAuthor.value, inputPages.value, inputIsRead.checked))
         resetInput();
         calculatePages();
+        calculateRead();
         displayBook();
         booksSumDisplay.innerHTML = Number(myLibrary.length);
         modal.close(); 
@@ -119,6 +135,7 @@ myLibrary.forEach((book) => {
             return obj.title === book.title
         }), 1)
         booksSumDisplay.innerHTML = Number(myLibrary.length);
+        calculateRead();
         card.remove()
     })
 
@@ -132,6 +149,8 @@ myLibrary.forEach((book) => {
             } else {
                  isRead.innerHTML = 'No'
             }
+
+            calculateRead();
     })
 
     deleteBtn.classList.add("deleteBtn")
