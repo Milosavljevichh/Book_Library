@@ -3,7 +3,8 @@ let inputTitle = document.querySelector('#title');
 let inputAuthor = document.querySelector('#author');
 let inputPages = document.querySelector('#pages');
 let inputIsRead = document.querySelector('#isRead');
-let pagesSumDisplay = document.querySelector(".total-pages")
+let pagesSumDisplay = document.querySelector(".total-pages");
+let booksSumDisplay = document.querySelector(".total-books");
 
 
 
@@ -28,7 +29,8 @@ function calculatePages() {
     console.log(pagesSum)
     
     pagesSumDisplay.innerHTML = pagesSum
-}
+};
+
 
 const form = document.getElementById("form")
 
@@ -46,6 +48,7 @@ function addToLibrary() {
     inputIsRead.checked = false
     calculatePages()
     DB()
+    booksSumDisplay.innerHTML = Number(myLibrary.length);
     modal.close(); 
 }};
 
@@ -122,6 +125,7 @@ myLibrary.forEach((book) => {
         myLibrary.splice(myLibrary.findIndex(obj => {
             return obj.title === book.title
         }), 1)
+        booksSumDisplay.innerHTML = Number(myLibrary.length);
         card.remove()
     })
 
