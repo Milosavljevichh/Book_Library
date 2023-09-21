@@ -6,9 +6,14 @@ let inputIsRead = document.querySelector('#isRead');
 let pagesSumDisplay = document.querySelector(".total-pages");
 let booksSumDisplay = document.querySelector(".total-books");
 
-
-
 const myLibrary = [];
+
+const form = document.getElementById("form")
+
+const modal = document.getElementById("modal");
+function displayForm() {
+    modal.showModal()
+}
 
 function Book(title, author, pages, read) {
     this.title = title
@@ -26,41 +31,29 @@ function calculatePages() {
             pagesSum += Number(book.pages)
         }   
     })
-    console.log(pagesSum)
     
     pagesSumDisplay.innerHTML = pagesSum
 };
 
 
-const form = document.getElementById("form")
 
-const modal = document.getElementById("modal");
-function displayForm() {
-    modal.showModal()
-}
 
 function addToLibrary() {
     if (((inputTitle.value.length && inputAuthor.value.length >= 2) && (inputPages.value > 0))) {
-    myLibrary.push(new Book(inputTitle.value, inputAuthor.value, inputPages.value, inputIsRead.checked))
-    inputTitle.value = " "
-    inputAuthor.value = " "
-    inputPages.value = ""
-    inputIsRead.checked = false
-    calculatePages()
-    DB()
-    booksSumDisplay.innerHTML = Number(myLibrary.length);
-    modal.close(); 
+        myLibrary.push(new Book(inputTitle.value, inputAuthor.value, inputPages.value, inputIsRead.checked))
+        resetInput();
+        calculatePages();
+        displayBook();
+        booksSumDisplay.innerHTML = Number(myLibrary.length);
+        modal.close(); 
 }};
 
 function closeDialog() {
     modal.close();
-    inputTitle.value = " "
-    inputAuthor.value = " "
-    inputPages.value = ""
-    inputIsRead.checked = false
+    resetInput();
 }
 
-function DB() {
+function displayBook() {
 myLibrary.forEach((book) => {
     if (book.displayed === false) {
     const booksContainer = document.querySelector('.books-container')
@@ -153,4 +146,12 @@ myLibrary.forEach((book) => {
     booksContainer.appendChild(card)
 }
 })
+}
+
+
+function resetInput() {
+    inputTitle.value = " "
+    inputAuthor.value = " "
+    inputPages.value = ""
+    inputIsRead.checked = false
 }
