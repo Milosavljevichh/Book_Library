@@ -3,6 +3,7 @@ let inputTitle = document.querySelector('#title');
 let inputAuthor = document.querySelector('#author');
 let inputPages = document.querySelector('#pages');
 let inputIsRead = document.querySelector('#isRead');
+let pagesSumDisplay = document.querySelector(".total-pages")
 
 
 
@@ -16,6 +17,19 @@ function Book(title, author, pages, read) {
     this.displayed = false
 };
 
+let pagesSum = 0
+
+function calculatePages() {
+    myLibrary.forEach((book) => {
+        if (book.displayed === false) {
+            pagesSum += Number(book.pages)
+        }   
+    })
+    console.log(pagesSum)
+    
+    pagesSumDisplay.innerHTML = pagesSum
+}
+
 const form = document.getElementById("form")
 
 const modal = document.getElementById("modal");
@@ -26,11 +40,11 @@ function displayForm() {
 function addToLibrary() {
     if (((inputTitle.value.length && inputAuthor.value.length >= 2) && (inputPages.value > 0))) {
     myLibrary.push(new Book(inputTitle.value, inputAuthor.value, inputPages.value, inputIsRead.checked))
-    console.log(myLibrary)
     inputTitle.value = " "
     inputAuthor.value = " "
     inputPages.value = ""
     inputIsRead.checked = false
+    calculatePages()
     DB()
     modal.close(); 
 }};
@@ -103,6 +117,8 @@ myLibrary.forEach((book) => {
     const deleteBtn = document.createElement("button")
     deleteBtn.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" height=1.5em fill="white" viewBox="0 0 24 24"><title>trash-can</title><path d="M9,3V4H4V6H5V19A2,2 0 0,0 7,21H17A2,2 0 0,0 19,19V6H20V4H15V3H9M9,8H11V17H9V8M13,8H15V17H13V8Z" /></svg>`
     deleteBtn.addEventListener("click", function(){
+        pagesSum -= Number(book.pages)
+        pagesSumDisplay.innerHTML = pagesSum
         myLibrary.splice(myLibrary.findIndex(obj => {
             return obj.title === book.title
         }), 1)
@@ -113,6 +129,7 @@ myLibrary.forEach((book) => {
     readBtn.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" height=1.5em fill="white" viewBox="0 0 24 24"><title>read</title><path d="M21.59,11.59L23,13L13.5,22.5L8.42,17.41L9.83,16L13.5,19.68L21.59,11.59M4,16V3H6L9,3A4,4 0 0,1 13,7C13,8.54 12.13,9.88 10.85,10.55L14,16H12L9.11,11H6V16H4M6,9H9A2,2 0 0,0 11,7A2,2 0 0,0 9,5H6V9Z" /></svg>`
     readBtn.addEventListener("click", function(){
             book.isRead = !book.isRead
+            
             if (book.isRead === true) {
                 isRead.innerHTML = 'Yes'
             } else {
