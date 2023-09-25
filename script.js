@@ -156,6 +156,7 @@ myLibrary.forEach((book) => {
     deleteBtn.classList.add("deleteBtn")
     deleteBtn.classList.add("trashBtn")
     readBtn.classList.add("deleteBtn")
+    readBtn.classList.add("readBtn")
     cardSectionDelete.append(readBtn, deleteBtn)
     
     
