@@ -26,13 +26,13 @@ a::after {
     --light-blue-bg: #419197;
     --dark-blue-border: #12486B;
     --sidebar-pinkish: #E5C3A6;
+    --sidebar-section-bg: #E1CBB8;
 }
 
 .menu-title {
     color: #b3b3b3;
     font-family: quicksand;
     font-size: 1.05em;
-    margin-bottom: 15px;
     font-weight: 600;
 }
 
@@ -94,9 +94,10 @@ a::after {
 
 .sidebar-limit {
     display: grid;
-    grid-template-rows: 0.4fr 1.5fr 1.5fr 0.6fr;
-    justify-content: center;
-    padding: 10px;
+    grid-template-rows: 1fr 1fr;
+    gap: 40px;
+    padding: 65px;
+    padding-top: 35px;
 }
 
 
@@ -133,10 +134,21 @@ a::after {
     transition: text-decoration-color 300ms;
 }
 
-.stats {
+.stats p{
+    color: white;
+
+}
+
+.bg-container {
     display: flex;
     flex-direction: column;
     gap: 15px;
+    background-color: var(--sidebar-section-bg);
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    padding: 20px;
+    border: solid 2.5px black;
+    border-bottom: solid 7px black;
 }
 
 .dashboard-title {
