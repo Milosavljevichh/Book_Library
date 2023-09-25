@@ -161,7 +161,10 @@ myLibrary.forEach((book) => {
     
 
     //appending card
-    card.append(cardSectionTitle, cardSectionAuthor, cardSectionPages, cardSectionRead, cardSectionDelete)
+    const sectionContainer = document.createElement("div");
+    sectionContainer.classList.add("sectionContainer")
+    sectionContainer.append(cardSectionTitle, cardSectionAuthor, cardSectionPages,cardSectionRead)
+    card.append(sectionContainer, cardSectionDelete)
     booksContainer.appendChild(card)
 }
 })

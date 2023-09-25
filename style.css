@@ -10,7 +10,7 @@ body {
 }
 
 body {
-    background-color: #EDF1D6;
+    background-color: var(--sidebar-pinkish);
 }
 
 a {
@@ -26,14 +26,18 @@ a::after {
     --light-blue-bg: #419197;
     --dark-blue-border: #12486B;
     --sidebar-pinkish: #E5C3A6;
-    --sidebar-section-bg: #E1CBB8;
+    --sidebar-section-bg: #B4A293;
+    --addBtn-blue: #78D6C6;
+    --bg-color: #EEE2AE;
+    --footer-blue: #419197;
 }
 
 .menu-title {
     color: #b3b3b3;
     font-family: quicksand;
-    font-size: 1.05em;
+    font-size: 1.15em;
     font-weight: 600;
+    text-shadow: 0px 2px 5px black;
 }
 
 .dialog-btns {
@@ -82,6 +86,22 @@ a::after {
     padding: 18px 65px 18px 65px;
 }
 
+.footer {
+    grid-column: 2 / 3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--footer-blue);
+    border-top: solid 4.5px var(--dark-blue-border);
+    padding: 16px;
+    
+}
+
+.footer p {
+    font-family: quicksand;
+    color: white;
+}
+
 .container {
     display: grid;
     gap: 50px;
@@ -90,6 +110,7 @@ a::after {
 .sidebar {
     background-color: var(--sidebar-pinkish);
     border-right: solid 4.5px var(--dark-blue-border);
+    grid-row: 2/4;
 }
 
 .sidebar-limit {
@@ -157,7 +178,7 @@ a::after {
     gap: 17px;
     color: white;
     justify-self: center;
-    align-self: flex-start;
+    align-self: center;
 }
 
 .deleteBtn {
@@ -172,7 +193,6 @@ a::after {
     color: white;
     width: 40px;
     height: 40px;
-    margin-top: 15px;
     transition: all .4s;
 }
 
@@ -182,7 +202,10 @@ a::after {
     display: flex;
     gap: 16px;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-end;
+    grid-row: 2/3;
+    margin-bottom: 20px;
+    margin-right: 20px;
 }
 
 .deleteBtn:hover {
@@ -295,9 +318,10 @@ dialog::backdrop {
 .books-container {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 15px;
+    gap: 45px;
     padding: 25px;
     justify-items: center;
+    background-color: var(--bg-color);
 }
 
 .card {
@@ -308,13 +332,13 @@ dialog::backdrop {
     color: #EDF1D6;
     border-radius: 15px;
     display: grid;
-    grid-template-rows: repeat(5, 1fr);
+    /* grid-template-columns: repeat(2, 1fr); */
+    grid-template-rows: 2fr 1fr;
     align-items: center;
-    justify-content: start;
     gap: 10px;
-    padding: 40px 25px 40px 25px;
-    width: 245px;
-    height: fit-content;
+    /* padding: 40px 25px 40px 25px; */
+    width: 100%;
+    height: 305px;
 }
 
 .card p {
@@ -323,4 +347,40 @@ dialog::backdrop {
 
 .card h3 {
     font-size: 1.3em;
+}
+
+.sectionContainer {
+    min-width: 100%;
+    margin: 20px;
+}
+
+.addBookBtn {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.addBookBtn p, button {
+    font-family: quicksand;
+    color: white;
+}
+
+.addBookBtn p {
+    font-size: 22px;
+    font-weight: 600;
+}
+
+.addBookBtn button{
+    font-size: 36px;
+    font-weight: 600;
+    background-color: var(--addBtn-blue);
+    border: solid 2px black;
+    border-bottom: solid 5px black;
+    border-right: solid 5px black;
+    width: 55px;
+    height: 55px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
