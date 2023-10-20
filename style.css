@@ -23,14 +23,14 @@ a::after {
 
 :root {
     /* theme-blue */
-    --light-blue-bg: #419197;
-    --dark-blue-border: #12486B;
-    --sidebar-pinkish: #E5C3A6;
-    --sidebar-section-bg: #B4A293;
-    --addBtn-blue: #78D6C6;
-    --bg-color: #EEE2AE;
-    --footer-blue: #419197;
-    --blue-gradient: linear-gradient(184deg, rgba(18,72,107,1) 0%, rgba(65,145,151,1) 52%, rgba(99,188,180,1) 100%);
+    --light-blue-bg: #534990;
+    --dark-blue-border: #1E1745;
+    --sidebar-pinkish: #504974;
+    --sidebar-section-bg: #807B97;
+    --addBtn-blue: #7D69AF;
+    --bg-color: #6E6796;
+    --footer-blue: #534990;
+    --blue-gradient: #7D7991
 }
 
 .menu-title {
@@ -171,9 +171,8 @@ a::after {
     border-bottom-left-radius: 20px;
     border-bottom-right-radius: 20px;
     padding: 20px;
-    border: solid 2.5px black;
-    border-bottom: solid 7px black;
-    box-shadow: 0px 7px 12px gray;
+    border: solid 2.5px var(--dark-blue-border);
+    border-bottom: solid 7px var(--dark-blue-border);
 }
 
 .dashboard-title {
@@ -218,7 +217,7 @@ a::after {
 
 .deleteBtn:hover {
     cursor: pointer;
-    background-color: #2c3828;
+    background-color: #522676;
 }
 
 .trashBtn:hover {
@@ -335,9 +334,8 @@ dialog::backdrop {
 .card {
     font-family: quicksand;
     background: var(--blue-gradient);
-    border: solid 3px black;
-    border-bottom: solid 9px black;
-    box-shadow: 0px 7px 12px gray;
+    border: solid 3px var(--dark-blue-border);
+    border-bottom: solid 9px var(--dark-blue-border);
     color: #EDF1D6;
     border-radius: 15px;
     display: grid;
@@ -378,7 +376,6 @@ dialog::backdrop {
 }
 
 .addBookBtn button{
-    box-shadow: 0px 7px 12px var(--dark-blue-border);
     font-size: 36px;
     font-weight: 600;
     background-color: var(--addBtn-blue);
